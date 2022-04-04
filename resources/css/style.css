@@ -47,7 +47,7 @@ p {
 
 .content-section-text {
     text-align: center;
-    font-size: large;
+    font-size: medium;
     margin-top: 20px;
     margin-left: 15%;
     margin-right: 15%;
@@ -78,8 +78,18 @@ a .card:hover {
     font-style: italic;
 }
 
-.btn-primary.btn-lg {
+.rounded-corners {
+    border-radius: 5%;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.btn-lg {
     margin-right: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 @media screen and (max-width: 768px) {
