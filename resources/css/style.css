@@ -86,6 +86,10 @@ a .card:hover {
     text-align: left;
 }
 
+.half-left {
+    margin-right: 70px;
+}
+
 .btn-lg {
     margin-right: 10px;
     margin-bottom: 5px;
