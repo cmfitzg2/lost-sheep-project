@@ -5,12 +5,8 @@ body, html {
     font-family: 'Open Sans', sans-serif;
 }
 
-h2 {
-    font-size: 2.0rem;
-}
-
 p {
-    font-size: medium;
+    font-size: large;
 }
 
 .home-hero {
@@ -82,7 +78,7 @@ a .card:hover {
     border-radius: 5%;
 }
 
-.text-left {
+.align-left {
     text-align: left;
 }
 
@@ -96,7 +92,27 @@ a .card:hover {
     margin-top: 5px;
 }
 
-@media screen and (max-width: 768px) {
+.blockquote p {
+    font-size: x-large;
+}
+
+.blockquote-footer {
+    font-size: large;
+}
+
+.body-text {
+    line-height: 2.0rem;
+}
+
+.text-content.half-left, .text-content.half-right {
+    width: 80%;
+}
+
+.fifty-fifty {
+    display: flex;
+}
+
+@media screen and (max-width: 767px) {
     .card {
         margin-bottom: 20px;
     }
@@ -107,9 +123,26 @@ a .card:hover {
         padding-top: 50px;
         padding-bottom: 50px;
         min-height: 250px;
+        max-width: none;
     }
     .image-cover {
         height: 35%;
+    }
+    .text-content.half-left, .text-content.half-right {
+        width: 100%;
+    }
+    .fifty-fifty {
+        flex-wrap: wrap;
+    }
+    .media {
+        text-align: center;
+    }
+    .fifty-fifty-image {
+        width: 75%;
+        padding-bottom: 20px;
+    }
+    .fifty-fifty .text-content {
+        order: 2;
     }
 }
 
@@ -117,10 +150,20 @@ a .card:hover {
     .card {
         min-height: 315px;
     }
+
 }
 
 @media screen and (min-width: 1200px) {
     .card {
         min-height: 250px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .half-left {
+        margin-right: 20px;
+    }
+    .container.text-left, .container.text-right {
+        max-width: none;
     }
 }
