@@ -112,6 +112,19 @@ a .card:hover {
     display: flex;
 }
 
+.form-control {
+    margin-bottom: 20px;
+}
+
+form {
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.preview-images-zone {
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width: 767px) {
     .card {
         margin-bottom: 20px;
@@ -128,29 +141,19 @@ a .card:hover {
     .image-cover {
         height: 35%;
     }
-    .text-content.half-left, .text-content.half-right {
-        width: 100%;
-    }
-    .fifty-fifty {
-        flex-wrap: wrap;
-    }
-    .media {
-        text-align: center;
-    }
-    .fifty-fifty-image {
-        width: 75%;
-        padding-bottom: 20px;
-    }
-    .fifty-fifty .text-content {
-        order: 2;
-    }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1200px) {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
     .card {
         min-height: 315px;
     }
+}
 
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    form {
+        margin-left: 200px;
+        margin-right: 200px;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -165,5 +168,44 @@ a .card:hover {
     }
     .container.text-left, .container.text-right {
         max-width: none;
+    }
+    .fifty-fifty {
+        flex-wrap: wrap;
+    }
+    .media {
+        text-align: center;
+        margin-right: 0px;
+    }
+    .fifty-fifty-image {
+        padding-bottom: 20px;
+    }
+    .fifty-fifty .text-content {
+        order: 2;
+        margin-right: 0px;
+    }
+    .rounded-corners {
+        border-radius: 15%;
+    }
+    .text-content.half-left, .text-content.half-right {
+        width: 100%;
+    }
+    .fifty-fifty .link-container {
+        order: 3;
+        text-align: center;
+    }
+    .btn {
+        text-align: center;
+        width: 100%;
+    }
+    form {
+        margin-left: 75px;
+        margin-right: 75px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    form {
+        margin-left: 25px;
+        margin-right: 25px;
     }
 }
