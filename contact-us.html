@@ -47,23 +47,29 @@
         <div class="container content-section align-left">
             <form>
                 <div class="form-group">
+                    <p>Have any questions? Please reach out to us, and we will be in touch as soon as possible!</p>
+
                     <label for="name">Preferred Name</label>
                     <input type="name" class="form-control" id="name" required>
+
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+
                     <label for="message">Message</label>
                     <textarea class="form-control" id="message" rows="5" placeholder="Enter a description of your message" required></textarea>
+                    
                     <label for="pro-image">Relevant image(s)</label>
                     <input type="file" id="pro-image" name="pro-image" class="form-control" multiple>
                     <div class="preview-images-zone">
                         <div class="preview-image-static preview-show-1">
                             <div class="image-zone">
                                 <a href="javascript:void(0)" onclick="$('#pro-image').click()">
-                                    <img id="pro-img-1" src="resources/img/img-upload.png">
+                                    <img id="pro-img-1" src="/resources/img/img-upload.png">
                                 </a>
                             </div>
                         </div>
                     </div>
+                    
                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
             </fieldset>

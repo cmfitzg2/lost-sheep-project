@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="/resources/css/style.css"/>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/css/image-upload.css">
     <title>Lost Sheep Project</title>
 </head>
 
@@ -41,21 +44,65 @@
     </div>
     
     <div class="container-bg-gray">
-        <div class="container content-section">
-            <h2 class="content-section-header">What We Do</h2>
-            <div class="content-section-text">
-                <p>The Lost Sheep Project was founded to help collect disused statues and other sacred art from churches or private parties that no longer have use for them, and redistribute them to churches and chapels in need.</p>
-            </div>
-            <a href="/about-us">
-                <button class="btn btn-primary btn-lg">
-                    About Us
-                </button>
-            </a>
-        </div>
+        <div class="container content-section align-left">
+            <form>
+                <div class="form-group">
+                    <p>After submitting your form, we will reach out to you via the email you provide to discuss the specifics of your submission.</p>
+                    <p>Unsure if your item is eligible? <a href="/about-us.html#what-we-accept">See what we accept</a>.<br>Questions? <a href="/contact-us.html">Contact us</a>.</p>
+                    
+                    <label for="name">Preferred Name</label>
+                    <input type="name" class="form-control" id="name" required>
+                    
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                   
+                    <label for="itemCount">How many total items are you submitting?</label>
+                    <input type="number" class="form-control" id="itemCount" placeholder="# of items" required>
+                   
+                    <label for="itemCategory">What category best describes your item(s)?</label>
+                    <select class="form-control" id="itemCategory" required>
+                        <option disabled selected value>Select a Category</option>
+                        <option>Statue</option>
+                        <option>Figure</option>
+                        <option>Painting</option>
+                        <option>Icon</option>
+                        <option>Multiple (describe below)</option>
+                        <option>Other (describe below)</option>
+                    </select>
+
+                    <label for="shipping">Do you need us to pay for shipping?</label>
+                    <select class="form-control" id="shipping">
+                        <option disabled selected value>Select a Shipping Option</option>
+                        <option>Yes, all of it</option>
+                        <option>Yes, some of it</option>
+                        <option>No</option>
+                    </select>
+
+                    <label for="notes">Notes</label>
+                    <textarea class="form-control" id="notes" rows="5" placeholder="Enter any notes about the items you're submitting"></textarea>
+                    
+                    <label for="pro-image">Relevant image(s)</label>
+                    <input type="file" id="pro-image" name="pro-image" class="form-control" multiple>
+                    <div class="preview-images-zone">
+                        <div class="preview-image-static preview-show-1">
+                            <div class="image-zone">
+                                <a href="javascript:void(0)" onclick="$('#pro-image').click()">
+                                    <img id="pro-img-1" src="/resources/img/img-upload.png">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </div>
+            </fieldset>
+        </form>
     </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+<script src="/resources/js/image-upload.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/resources/js/bootstrap.min.js"
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 crossorigin="anonymous"></script>
 </body>
