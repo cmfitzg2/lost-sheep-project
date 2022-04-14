@@ -125,6 +125,33 @@ form {
     margin-bottom: 20px;
 }
 
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+footer .sitemap {
+    padding: 70px 0;
+    margin: auto;
+}
+
+footer .sitemap span::after {
+    content: " | ";
+}
+
+footer .sitemap span:last-child:after {
+    content: "";
+}
+
+footer .copyright {
+    padding-bottom: 10px;
+}
+
 @media screen and (max-width: 767px) {
     .card {
         margin-bottom: 20px;
