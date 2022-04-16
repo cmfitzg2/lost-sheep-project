@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -15,91 +15,89 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1">
-        <div class="container">
-            <a href="/" class="navbar-brand">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="/submit" class="nav-link">Make a Submission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/about-us" class="nav-link">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/donate" class="nav-link">Donate</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="image-cover home-hero">
-        <div class="hero-text">
-            <h1>Make a Submission</h1>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1">
+    <div class="container">
+        <a href="/" class="navbar-brand">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="/submit" class="nav-link">Make a Submission</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about-us" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/donate" class="nav-link">Donate</a>
+                </li>
+            </ul>
         </div>
     </div>
-    
-    <div class="container-bg-gray">
-        <div class="container content-section align-left">
-            <form>
-                <div class="form-group">
-                    <p>After submitting your form, we will reach out to you via the email you provide to discuss the specifics of your submission.</p>
-                    <p>Unsure if your item is eligible? <a href="/about-us#what-we-accept">See what we accept</a>.<br>Questions? <a href="/contact-us">Contact us</a>.</p>
-                    
-                    <label for="name">Preferred Name</label>
-                    <input type="name" class="form-control" id="name" required>
-                    
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-                    
-                    <label for="itemCount">How many total items are you submitting?</label>
-                    <input type="number" class="form-control" id="itemCount" placeholder="# of items" required>
-                    
-                    <label for="itemCategory">What category best describes your item(s)?</label>
-                    <select class="form-control" id="itemCategory" required>
-                        <option disabled selected value>Select a Category</option>
-                        <option>Statue</option>
-                        <option>Crucifix</option>
-                        <option>Figure</option>
-                        <option>Painting</option>
-                        <option>Icon</option>
-                        <option>Multiple (describe below)</option>
-                        <option>Other (describe below)</option>
-                    </select>
-                    
-                    <label for="shipping">Do you need us to pay for shipping?</label>
-                    <select class="form-control" id="shipping">
-                        <option disabled selected value>Select a Shipping Option</option>
-                        <option>Yes, all of it</option>
-                        <option>Yes, some of it</option>
-                        <option>No</option>
-                    </select>
-                    
-                    <label for="notes">Notes</label>
-                    <textarea class="form-control" id="notes" rows="5" placeholder="Enter any notes about the items you're submitting"></textarea>
-                    
-                    <label for="pro-image">Relevant image(s)</label>
-                    <input type="file" id="pro-image" name="pro-image" class="form-control" multiple>
-                    <div class="preview-images-zone">
-                        <div class="preview-image-static preview-show-1">
-                            <div class="image-zone">
-                                <a href="javascript:void(0)" onclick="$('#pro-image').click()">
-                                    <img id="pro-img-1" src="/img/img-upload.png">
-                                </a>
-                            </div>
+</nav>
+
+<div class="image-cover home-hero">
+    <div class="hero-text">
+        <h1>Make a Submission</h1>
+    </div>
+</div>
+
+<div class="container-bg-gray">
+    <div class="container content-section align-left">
+        <form th:action="@{/submit}" method="post" th:object="${itemsubmit}">
+            <div class="form-group">
+                <p>After submitting your form, we will reach out to you via the email you provide to discuss the specifics of your submission.</p>
+                <p>Unsure if your item is eligible? <a href="/about-us#what-we-accept">See what we accept</a>.<br>Questions? <a href="/contact-us">Contact us</a>.</p>
+
+                <label for="name">Preferred Name</label>
+                <input th:field="*{name}" type="name" class="form-control" id="name" name="name" required>
+
+                <label for="email">Email address</label>
+                <input th:field="*{email}" type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+
+                <label for="itemCount">How many total items are you submitting?</label>
+                <input th:field="*{itemTotal}" type="number" class="form-control" id="itemCount" name="itemCount" placeholder="# of items" required>
+
+                <label for="itemCategory">What category best describes your item(s)?</label>
+                <select th:field="*{itemCategory}" class="form-control" id="itemCategory" name="itemCategory" required>
+                    <option disabled selected value="">Select a Category</option>
+                    <option value="Statue">Statue</option>
+                    <option value="Crucifix">Crucifix</option>
+                    <option value="Figure">Figure</option>
+                    <option value="Painting">Painting</option>
+                    <option value="Icon">Icon</option>
+                    <option value="Multiple">Multiple (describe below)</option>
+                    <option value="Other">Other (describe below)</option>
+                </select>
+
+                <label for="shipping">Do you need us to pay for shipping?</label>
+                <select th:field="*{shipping}" class="form-control" id="shipping" name="shipping">
+                    <option disabled selected value="">Select a Shipping Option</option>
+                    <option value="All">Yes, all of it</option>
+                    <option value="Some">Yes, some of it</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label for="notes">Notes</label>
+                <textarea th:field="*{notes}" class="form-control" id="notes" name="notes" rows="5" placeholder="Enter any notes about the items you're submitting"></textarea>
+
+                <label for="pro-image">Relevant image(s)</label>
+                <input type="file" id="pro-image" name="pro-image" class="form-control" multiple>
+                <div class="preview-images-zone">
+                    <div class="preview-image-static preview-show-1">
+                        <div class="image-zone">
+                            <a href="javascript:void(0)" onclick="$('#pro-image').click()">
+                                <img id="pro-img-1" src="/img/img-upload.png">
+                            </a>
                         </div>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </div>
-            </fieldset>
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </div>
         </form>
     </div>
-</section>
+</div>
 <footer class="bg-dark text-center text-white">
     <div class="sitemap">
         <a href="/">
@@ -131,8 +129,8 @@
 <script src="/js/image-upload.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="/js/bootstrap.min.js"
-integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

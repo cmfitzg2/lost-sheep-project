@@ -1,5 +1,6 @@
 package com.lostsheepproject.application.controllers;
 
+import com.lostsheepproject.application.modelobjects.ItemSubmit;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +14,7 @@ public class Controller {
                                      @RequestParam("name") String name,
                                      @RequestParam("email") String email,
                                      @RequestParam("itemTotal") String itemTotal,
-                                     @RequestParam("category") String category,
+                                     @RequestParam("itemCategory") String itemCategory,
                                      @RequestParam("shipping") String shipping,
                                      @RequestParam("notes") String notes) {
         return "redirect:submit?success";
@@ -21,7 +22,7 @@ public class Controller {
 
     @GetMapping("/submit")
     public void greeting(Model model) {
-
+        model.addAttribute("itemsubmit", new ItemSubmit());
     }
 
 }
